@@ -1,0 +1,91 @@
+---
+auth:
+  required: true
+  queryParams: {}
+  headerParams: {}
+  apiKeysPath: null
+  headersPath: null
+  oauthPath: null
+testConfiguration:
+  operations:
+  - testPath: /createAccount
+    operationId: <SET OPERATION ID>
+    method: post
+    testParameters:
+    - name: body
+      in: body
+      weight: null
+      generators:
+      - type: RandomInputValue
+        genParameters:
+        - name: values
+          values:
+          - value 1
+          - value 2
+          objectValues: null
+        valid: true
+    expectedResponse: 200
+  - testPath: /addCreditsToAccount
+    operationId: <SET OPERATION ID>
+    method: post
+    testParameters:
+    - name: body
+      in: body
+      weight: null
+      generators:
+      - type: ObjectPerturbator
+        genParameters:
+        - name: stringObjects
+          values:
+          - "{\"accountId\":1,\"credits\":100.0}"
+          objectValues: null
+        valid: true
+    expectedResponse: 200
+  - testPath: /associateUserToAccount
+    operationId: <SET OPERATION ID>
+    method: post
+    testParameters:
+    - name: body
+      in: body
+      weight: null
+      generators:
+      - type: ObjectPerturbator
+        genParameters:
+        - name: stringObjects
+          values:
+          - "{\"accountId\":1,\"userId\":1}"
+          objectValues: null
+        valid: true
+    expectedResponse: 200
+  - testPath: /linkAccountToMercadoPago
+    operationId: <SET OPERATION ID>
+    method: post
+    testParameters:
+    - name: body
+      in: body
+      weight: null
+      generators:
+      - type: ObjectPerturbator
+        genParameters:
+        - name: stringObjects
+          values:
+          - "{\"accountId\":1,\"mercadoPagoId\":1}"
+          objectValues: null
+        valid: true
+    expectedResponse: 200
+  - testPath: /buyCreditsMercadoPago
+    operationId: <SET OPERATION ID>
+    method: post
+    testParameters:
+    - name: body
+      in: body
+      weight: null
+      generators:
+      - type: ObjectPerturbator
+        genParameters:
+        - name: stringObjects
+          values:
+          - "{\"accountId\":1,\"credits\":100.0}"
+          objectValues: null
+        valid: true
+    expectedResponse: 200
